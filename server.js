@@ -54,7 +54,7 @@ var fancyCrawler = new Crawler({
 			{ 
 				var imgUrl = $(this).children('figure').css('background-image');
 				imgUrl = imgUrl.replace('url(', '').replace(')', '');
-				var directLink = $(this).children('figcaption').children('.title').attr('href');
+				var directLink = "http://fancy.com" + $(this).children('figcaption').children('.title').attr('href');
 				var title = $(this).children('figcaption').children('.title').text();
 				var price = $(this).children('figcaption').children('.price').text();
 				var itemsTags = tags;
@@ -71,3 +71,5 @@ var fancyCrawler = new Crawler({
 
 
 fancyCrawler.queue('http://fancy.com/shop')
+
+// to do amazon
