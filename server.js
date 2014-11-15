@@ -70,6 +70,69 @@ var fancyCrawler = new Crawler({
 
 
 
-fancyCrawler.queue('http://fancy.com/shop')
+// fancyCrawler.queue('http://fancy.com/shop');
+
+var amazonCategories = new Array();
+amazonCategories["Decked in Tech"] = new Array ("Techies", "Geeks", "GadetLovers");
+amazonCategories["The Gadget Guru"] = new Array ("Techies", "Geeks", "GadetLovers");
+amazonCategories["The Gamer"] = new Array("Gamer", "Techies", "Geeks", "GadetLovers", "Son");
+amazonCategories["High-Tech Living"] = new Array("Techies", "Geeks", "HomeImprovers");
+amazonCategories["The Music Enthusiast"] = new Array("Musicians", "MusicLovers", "MusicEnthusiasts", "Techies", "Geeks");
+amazonCategories["The Home Office"] = new Array("Techies", "Geeks", "GadetLovers");
+amazonCategories["The Photographer"] = new Array("Artists", "Photographers");
+amazonCategories["The Student"] = new Array("Students", "Techies", "Geeks");
 
 // to do amazon
+var amazonCrawler = new Crawler({
+	maxConnections : 10,
+	// this will be called for each crawled page
+	callback : function (error, result, $){
+		// $ is Cheerio by default
+		// a lean implementation of core jquery designed specifically for the server
+		
+		console.log(result);
+
+		// add each category to the queue
+		if(result.uri == 'http://www.amazon.com/b/?node=7258612011')
+		{
+			$('#acs-featureblocks-783 a').each(function(){ 
+				var toQueueUrl = $(this).attr('href'); 
+				toQueueUrl = "http://www.amazon.com" + toQueueUrl
+				console.log(toQueueUrl);
+				amazonCrawler.queue(toQueueUrl);
+			});
+		}
+
+		if($('.acs-en-selected').children('div').text().trim() != ""){
+			var tag = $('.acs-en-selected').children('div').text().trim();
+			
+			console.log(tag);
+			
+			var tags = "";
+			for(var i = 0; i < amazonCategories[tag.toString()].length; i++){
+				tags += "#" + amazonCategories[tag][i] + " ";
+			}
+
+			var data =""
+
+			$('.acs-wtfl-card').each(function()
+			{ 
+				if ($(this).find('[data-ng-show="card.titleOverride"]').text() != ""){
+					var imgUrl = $(this).find('img').attr('src');				
+					var directLink = "http://www.amazon.com" + $(this).find('[data-ng-show="card.titleOverride"]').attr('href');
+					var title = $(this).find('[data-ng-show="card.titleOverride"]').text()
+					var price = $(this).find('[data-ng-bind-html="card.productData.buyingPrice"]').text()
+					var description = $(this).find('[data-ng-bind-html="(card.descriptionOverride ? card.descriptionOverride : card.productData.productDescription)"]').text()
+					var itemsTags = tags;
+
+					data += "\r\n" + title + ";" + price + ";" + imgUrl + ";" + directLink + ";" + itemsTags + ";" + description;
+				}
+
+			});
+
+			fs.appendFile('data-amazon.txt', data, function(err){ console.log(err); });
+		}
+	}
+});
+
+amazonCrawler.queue('http://www.amazon.com/b/?node=7258612011');
