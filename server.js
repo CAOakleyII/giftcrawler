@@ -135,4 +135,55 @@ var amazonCrawler = new Crawler({
 	}
 });
 
-amazonCrawler.queue('http://www.amazon.com/b/?node=7258612011');
+// amazonCrawler.queue('http://www.amazon.com/b/?node=7258612011');
+var uncommonCategories = new Array();
+uncommonCategories["Mom"] = new Array("Mothers", "Moms", "Sisters", "Sis" );
+var uncommongoods = new Crawler({
+	maxConnections : 10,
+	// this will be called for each crawled page
+	callback : function (error, result, $){
+		// $ is Cheerio by default
+		// a lean implementation of core jquery designed specifically for the server
+		
+		// add each category to the queue
+		// if(result.uri == 'http://fancy.com/shop')
+		// {
+		// 	$('.browse-shop a').each(function(index, a){
+		// 		var toQueueUrl = $(a).attr('href');
+		// 		toQueueUrl = "http://fancy.com" + toQueueUrl
+		// 		console.log(toQueueUrl);
+		// 		fancyCrawler.queue(toQueueUrl);
+		// 	})
+		// }
+
+		// if($('.breadcrumbs').attr("data-category") != undefined && $('.breadcrumbs').attr("data-category") != "Other,"){
+		// 	var tag = $('.breadcrumbs').attr("data-category");
+			
+			// console.log(tag);
+			// tag = tag.replace(',', '');
+			var tags = "";
+			for(var i = 0; i < uncommonCategories["Mom"].length; i++){
+				tags += "#" + uncommonCategories["Mom"][i] + " ";
+			}
+
+			var data =""
+			$('#allCategoryItems li').each(function(){
+				var imgUrl = $(this).find("img").attr('src').trim();
+				
+				var directLink =  $(this).find('a').attr('href').trim();
+				var title = $(this).find('figure figcaption .itemName').text().trim();
+				var price = $(this).find('figure figcaption .itemPrice').text().trim();
+				var itemsTags = tags;
+
+				data += "\r\n" + title + ";" + price + ";" + imgUrl + ";" + directLink + ";" + itemsTags;
+
+			});
+
+			
+
+			fs.appendFile('data-uncommonmom.txt', data, function(err){ console.log(err); });
+		}
+	});
+
+
+uncommongoods.queue("http://www.uncommongoods.com/for-her/gifts-for-her/gifts-for-mom")
