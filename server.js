@@ -52,11 +52,11 @@ var fancyCrawler = new Crawler({
 
 			$('.figure-item').each(function()
 			{ 
-				var imgUrl = $(this).children('figure').css('background-image');
+				var imgUrl = $(this).find('figure').css('background-image');
 				imgUrl = imgUrl.replace('url(', '').replace(')', '');
-				var directLink = "http://fancy.com" + $(this).children('figcaption').children('.title').attr('href');
-				var title = $(this).children('figcaption').children('.title').text();
-				var price = $(this).children('figcaption').children('.price').text();
+				var directLink = "http://fancy.com" + $(this).find('figcaption .title')attr('href');
+				var title = $(this).find('figcaption .title').text();
+				var price = $(this).find('figcaption .price').text();
 				var itemsTags = tags;
 
 				data += "\r\n" + title + ";" + price + ";" + imgUrl + ";" + directLink + ";" + itemsTags;
@@ -70,7 +70,8 @@ var fancyCrawler = new Crawler({
 
 
 
-// fancyCrawler.queue('http://fancy.com/shop');
+fancyCrawler.queue('http://fancy.com/shop');
+
 
 var amazonCategories = new Array();
 amazonCategories["Decked in Tech"] = new Array ("Techies", "Geeks", "GadetLovers");
@@ -138,6 +139,7 @@ var amazonCrawler = new Crawler({
 // amazonCrawler.queue('http://www.amazon.com/b/?node=7258612011');
 var uncommonCategories = new Array();
 uncommonCategories["Mom"] = new Array("Mothers", "Moms", "Sisters", "Sis" );
+
 var uncommongoods = new Crawler({
 	maxConnections : 10,
 	// this will be called for each crawled page
@@ -186,4 +188,4 @@ var uncommongoods = new Crawler({
 	});
 
 
-uncommongoods.queue("http://www.uncommongoods.com/for-her/gifts-for-her/gifts-for-mom")
+// uncommongoods.queue("http://www.uncommongoods.com/for-her/gifts-for-her/gifts-for-mom")
