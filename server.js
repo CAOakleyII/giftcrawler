@@ -33,7 +33,7 @@ var fancyCrawler = new Crawler({
 			$('.browse-shop a').each(function(index, a){
 				var toQueueUrl = $(a).attr('href');
 				toQueueUrl = "http://fancy.com" + toQueueUrl
-				console.log(toQueueUrl);
+				console.log("URL to queue:" + toQueueUrl);
 				fancyCrawler.queue(toQueueUrl);
 			})
 		}
@@ -54,7 +54,7 @@ var fancyCrawler = new Crawler({
 			{ 
 				var imgUrl = $(this).find('figure').css('background-image');
 				imgUrl = imgUrl.replace('url(', '').replace(')', '');
-				var directLink = "http://fancy.com" + $(this).find('figcaption .title')attr('href');
+				var directLink = "http://fancy.com" + $(this).find('figcaption .title').attr('href');
 				var title = $(this).find('figcaption .title').text();
 				var price = $(this).find('figcaption .price').text();
 				var itemsTags = tags;
@@ -63,7 +63,7 @@ var fancyCrawler = new Crawler({
 
 			});
 
-			fs.appendFile('data.txt', data, function(err){ console.log(err); });
+			fs.appendFile('data/data-fancy.txt', data, function(err){ console.log(err); });
 		}
 	}
 });
@@ -131,7 +131,7 @@ var amazonCrawler = new Crawler({
 
 			});
 
-			fs.appendFile('data-amazon.txt', data, function(err){ console.log(err); });
+			fs.appendFile('data/data-amazon.txt', data, function(err){ console.log(err); });
 		}
 	}
 });
@@ -183,7 +183,7 @@ var uncommongoods = new Crawler({
 
 			
 
-			fs.appendFile('data-uncommonmom.txt', data, function(err){ console.log(err); });
+			fs.appendFile('data/data-uncommonmom.txt', data, function(err){ console.log(err); });
 		}
 	});
 
