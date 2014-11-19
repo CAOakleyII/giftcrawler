@@ -1,41 +1,53 @@
 var util = require('util'),
 	fs = require('fs'),
-    OperationHelper = require('apac').OperationHelper;
+    amazonHelper = require('./amazonHelper')
 
-var opHelper = new OperationHelper({
-    awsId: 'AKIAIMAGTN3CTUWDPEKQ',
-    awsSecret: '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',
-    assocId:   'gifox-20'
-});
+
 
 
 var searchParams = {
   'SearchIndex': 'Toys',
-  'Keywords': 'gamers',
-  'ResponseGroup': 'ItemAttributes,Offers'
+  'Keywords': 'rocket',
+  'ResponseGroup': 'ItemAttributes'
 }
 
-opHelper.execute('ItemSearch', searchParams, function(err, results, xml) {
-    if(err){
-    	console.log('Error during the request.');
-    	console.log(err);
-    	return;
-    }
 
-    if(!results.ItemSearchResponse){
-    	// probably and error
-    	console.log('Error');
-    }
+var amazonBrowseNodeIds = {
+    'Comedy': 1036592,
+    'Jewelry': 3367581,
+    'Literature & Fiction': 17
+}
+
+var amazon = new amazonHelper();
+
+/* commented out for testing
+amazon.ItemSearch(searchParams, function(err, results){
+    fs.writeFile('data/test2.json', JSON.stringify(results, null, 4), function(err){
+        if(err){
+            console.log(err);
+            return;
+        }
 
 
-    var items = results.ItemSearchResponse.Items[0].Item;
+        console.log('data file created');
+    });
+});*/
 
-    fs.writeFile('data/test2.json', JSON.stringify(items, null, 4), function(err){
-    	if(err){
-    		console.log(err);
-    		return;
-    	}
 
-    	console.log('data file created');
+var browseNodeParams = {
+    'BrowseNodeId': amazonBrowseNodeIds['Literature & Fiction']
+}
+
+
+amazon.BrowseNodeId(browseNodeParams, function(err, results){
+    fs.writeFile('data/node1.json', JSON.stringify(results, null, 4), function(err){
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        console.log('data file created');
+
     });
 });
+

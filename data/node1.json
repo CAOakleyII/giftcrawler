@@ -1,0 +1,215 @@
+[
+    {
+        "BrowseNodeId": [
+            "17"
+        ],
+        "Name": [
+            "Literature & Fiction"
+        ],
+        "Children": [
+            {
+                "BrowseNode": [
+                    {
+                        "BrowseNodeId": [
+                            "720360"
+                        ],
+                        "Name": [
+                            "Action & Adventure"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "9823"
+                        ],
+                        "Name": [
+                            "African American"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "5391236011"
+                        ],
+                        "Name": [
+                            "Ancient & Medieval Literature"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10016"
+                        ],
+                        "Name": [
+                            "British & Irish"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10399"
+                        ],
+                        "Name": [
+                            "Classics"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10129"
+                        ],
+                        "Name": [
+                            "Contemporary"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "2159"
+                        ],
+                        "Name": [
+                            "Dramas & Plays"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10141"
+                        ],
+                        "Name": [
+                            "Erotica"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10108"
+                        ],
+                        "Name": [
+                            "Essays & Correspondence"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "16260301"
+                        ],
+                        "Name": [
+                            "Foreign Language Fiction"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10134"
+                        ],
+                        "Name": [
+                            "Genre Fiction"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10177"
+                        ],
+                        "Name": [
+                            "Historical Fiction"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10204"
+                        ],
+                        "Name": [
+                            "History & Criticism"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "4465"
+                        ],
+                        "Name": [
+                            "Humor & Satire"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10132"
+                        ],
+                        "Name": [
+                            "Literary"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "5391238011"
+                        ],
+                        "Name": [
+                            "Mythology & Folk Tales"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10248"
+                        ],
+                        "Name": [
+                            "Poetry"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10300"
+                        ],
+                        "Name": [
+                            "Short Stories & Anthologies"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "9822"
+                        ],
+                        "Name": [
+                            "United States"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "542654"
+                        ],
+                        "Name": [
+                            "Women's Fiction"
+                        ]
+                    },
+                    {
+                        "BrowseNodeId": [
+                            "10311"
+                        ],
+                        "Name": [
+                            "World Literature"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Ancestors": [
+            {
+                "BrowseNode": [
+                    {
+                        "BrowseNodeId": [
+                            "1000"
+                        ],
+                        "Name": [
+                            "Subjects"
+                        ],
+                        "IsCategoryRoot": [
+                            "1"
+                        ],
+                        "Ancestors": [
+                            {
+                                "BrowseNode": [
+                                    {
+                                        "BrowseNodeId": [
+                                            "283155"
+                                        ],
+                                        "Name": [
+                                            "Books"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
