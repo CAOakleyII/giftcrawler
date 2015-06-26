@@ -35,7 +35,7 @@ amazon.ItemSearch(searchParams, function(err, results){
 
 
 var browseNodeParams = {
-    'BrowseNodeId': amazonBrowseNodeIds['Literature & Fiction']
+    'BrowseNodeId': 228239 // amazonBrowseNodeIds['Literature & Fiction']
 }
 
 

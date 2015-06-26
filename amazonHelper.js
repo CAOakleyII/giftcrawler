@@ -3,9 +3,9 @@ module.exports = AmazonHelper
 OperationHelper = require('apac').OperationHelper;
 
 var opHelper = new OperationHelper({
-    awsId: 'AKIAIMAGTN3CTUWDPEKQ',
-    awsSecret: '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',
-    assocId:   'gifox-20'
+    awsId: 'nottelling',
+    awsSecret: 'noneya',
+    assocId:   'nope'
 });
 
 function AmazonHelper(){
